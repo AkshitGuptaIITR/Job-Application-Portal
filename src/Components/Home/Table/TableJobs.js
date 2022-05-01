@@ -1,10 +1,19 @@
 import { Button, Table, Tag } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import StatusModal from "../StatusModal/StatusModal";
 
 const TableJobs = () => {
   const { data } = useSelector((state) => state.application);
-  const handleUpdate = () => {};
+  const [visible, setVisible] = useState(false);
+
+  const handleVisible = () => {
+    setVisible(!visible);
+  };
+
+  const handleUpdate = () => {
+    handleVisible();
+  };
 
   const columns = [
     {
@@ -44,7 +53,17 @@ const TableJobs = () => {
       dataIndex: "status",
       render: (tags) => (
         <>
-          <Tag color={"green"}>{tags.toUpperCase()}</Tag>
+          <Tag
+            color={
+              tags === "accepted"
+                ? "green"
+                : tags === "decline"
+                ? "red"
+                : "blue"
+            }
+          >
+            {tags.toUpperCase()}
+          </Tag>
         </>
       ),
     },
@@ -58,7 +77,12 @@ const TableJobs = () => {
   ];
 
   return (
-    <Table style={{ width: "100%" }} dataSource={data} columns={columns} />
+    <>
+      <StatusModal visible={visible} handleCancel={handleVisible} />
+      <div style={{ overflowX: "scroll", overflowY: "hidden", width: "100%" }}>
+        <Table style={{ width: "100%" }} dataSource={data} columns={columns} />
+      </div>
+    </>
   );
 };
 

@@ -1,9 +1,9 @@
-.structure{
+.structure {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.structure button{
+.structure button {
   margin: 0px 6px;
 }

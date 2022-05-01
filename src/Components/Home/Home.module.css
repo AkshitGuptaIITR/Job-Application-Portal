@@ -1,0 +1,13 @@
+.bodyStructure {
+  display: flex;
+  flex-direction: column;
+  margin: 80px 10%;
+  /* margin-top: 70px; */
+}
+
+.createPost{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}

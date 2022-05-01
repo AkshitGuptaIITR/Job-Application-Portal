@@ -1,20 +1,10 @@
 import { Button, Table, Tag } from "antd";
 import React from "react";
+import { useSelector } from "react-redux";
 
 const TableJobs = () => {
+  const { data } = useSelector((state) => state.application);
   const handleUpdate = () => {};
-
-  const dataSource = [
-    {
-      name: "Akshit Gupta",
-      resume: "Test",
-      mobileNumber: "7877553148",
-      emailId: "gakshit92@gmail.com",
-      acadInfo: "2nd year IIT Roorkee",
-      professionalExperience: "2 yrs",
-      status: "applied",
-    },
-  ];
 
   const columns = [
     {
@@ -62,17 +52,13 @@ const TableJobs = () => {
       title: "Action",
       key: "Action",
       render: (data) => (
-        <Button onClick={() => console.log(data)}>Update</Button>
+        <Button onClick={() => handleUpdate(data)}>Update</Button>
       ),
     },
   ];
 
   return (
-    <Table
-      style={{ width: "100%" }}
-      dataSource={dataSource}
-      columns={columns}
-    />
+    <Table style={{ width: "100%" }} dataSource={data} columns={columns} />
   );
 };
 

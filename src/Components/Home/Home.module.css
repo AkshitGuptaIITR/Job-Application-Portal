@@ -5,9 +5,12 @@
   /* margin-top: 70px; */
 }
 
-.createPost{
+.createPost {
   display: flex;
   align-items: center;
   width: 100%;
   justify-content: center;
+}
+.AddCard:hover {
+  cursor: pointer;
 }

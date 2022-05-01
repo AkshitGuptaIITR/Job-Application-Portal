@@ -1,0 +1,40 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form label {
+  margin: 6px 0px;
+}
+
+.form button {
+  margin: 12px 0px 0px 0px;
+  width: 20%;
+  height: 30px;
+  border: none;
+  background-color: #ff6363;
+  border-radius: 4px;
+  color: #ffffff;
+}
+
+.form button:hover{
+  cursor: pointer;
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form input:hover{
+  border: 1px solid black;
+}
+
+.form input:focus{
+  border: 1px solid black;
+  outline: none;
+}
+
+.errorInput{
+  border: 1px solid red;
+}
